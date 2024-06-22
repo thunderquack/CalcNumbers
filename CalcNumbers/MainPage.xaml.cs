@@ -3,11 +3,14 @@
     public partial class MainPage : ContentPage
     {
         private int correctAnswer;
+        private int score;
+        private const int maxScore = 10;
 
         public MainPage()
         {
             InitializeComponent();
             GenerateRandomExample();
+            UpdateProgress();
         }
 
         private void GenerateRandomExample()
@@ -51,11 +54,18 @@
                 if (userAnswer == correctAnswer)
                 {
                     ResultLabel.Text = "Correct!";
+                    score++;
                 }
                 else
                 {
                     ResultLabel.Text = $"Incorrect. The correct answer is {correctAnswer}.";
+                    score--;
                 }
+
+                // Ensure score stays within bounds
+                score = Math.Max(0, Math.Min(score, maxScore));
+
+                UpdateProgress();
             }
             else
             {
@@ -65,6 +75,15 @@
             // Generate a new example for the next attempt
             GenerateRandomExample();
             AnswerEntry.Text = string.Empty;
+        }
+
+        private void UpdateProgress()
+        {
+            // Update ProgressBar
+            ProgressBar.Progress = (double)score / maxScore;
+
+            // Update StarsLabel
+            StarsLabel.Text = $"Stars: {score}";
         }
     }
 }
