@@ -14,16 +14,24 @@
         {
             var random = new Random();
             bool isAddition = random.Next(2) == 0;
-            int num1 = random.Next(0, 21);
-            int num2 = random.Next(0, 21);
 
             if (isAddition)
             {
-                correctAnswer = num1 + num2;
+                int num1;
+                int num2;
+                do
+                {
+                    num1 = random.Next(0, 21);
+                    num2 = random.Next(0, 21);
+                    correctAnswer = num1 + num2;
+                } while (correctAnswer > 20);
                 ExampleLabel.Text = $"{num1} + {num2} = ?";
             }
             else
             {
+                int num1 = random.Next(0, 21);
+                int num2 = random.Next(0, 21);
+
                 // Ensure non-negative result for subtraction
                 if (num1 < num2)
                 {
