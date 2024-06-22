@@ -13,9 +13,9 @@
         private void GenerateRandomExample()
         {
             var random = new Random();
+            bool isAddition = random.Next(2) == 0;
             int num1 = random.Next(0, 21);
             int num2 = random.Next(0, 21);
-            bool isAddition = random.Next(2) == 0;
 
             if (isAddition)
             {

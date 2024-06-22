@@ -17,6 +17,7 @@
                 x:Name="AnswerEntry"
                 Placeholder="Enter your answer"
                 Keyboard="Numeric"
+                Completed="OnCheckAnswerClicked"
                 HorizontalOptions="Fill" />
 
             <Button
