@@ -45,5 +45,4 @@
                 SemanticProperties.HeadingLevel="Level2" />
         </VerticalStackLayout>
     </ScrollView>
-
 </ContentPage>
