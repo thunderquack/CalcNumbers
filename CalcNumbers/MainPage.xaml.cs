@@ -38,9 +38,7 @@
                 // Ensure non-negative result for subtraction
                 if (num1 < num2)
                 {
-                    var temp = num1;
-                    num1 = num2;
-                    num2 = temp;
+                    (num2, num1) = (num1, num2);
                 }
                 correctAnswer = num1 - num2;
                 ExampleLabel.Text = $"{num1} - {num2} = ?";
