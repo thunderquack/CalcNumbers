@@ -135,4 +135,7 @@
   <data name="MaxScore" xml:space="preserve">
     <value>Макс. счёт</value>
   </data>
+  <data name="CorrectAnswers" xml:space="preserve">
+    <value>Правильных ответов </value>
+  </data>
 </root>

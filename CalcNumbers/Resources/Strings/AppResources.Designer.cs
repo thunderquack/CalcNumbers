@@ -70,6 +70,15 @@ namespace CalcNumbers.Resources.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Correct answers .
+        /// </summary>
+        internal static string CorrectAnswers {
+            get {
+                return ResourceManager.GetString("CorrectAnswers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enter your answer.
         /// </summary>
         internal static string EnterYourAnswer {

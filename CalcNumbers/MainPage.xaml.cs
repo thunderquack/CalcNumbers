@@ -1,4 +1,6 @@
-﻿namespace CalcNumbers
+﻿using CalcNumbers.Resources.Strings;
+
+namespace CalcNumbers
 {
     /// <summary>
     /// Main screen.
@@ -114,14 +116,14 @@
             {
                 if (userAnswer == correctAnswer)
                 {
-                    ResultPrefix = "Correct!";
+                    ResultPrefix = $"{AppResources.Correct}";
                     ResultAnswer = string.Empty;
                     ResultColor = Colors.Green;
                     score++;
                 }
                 else
                 {
-                    ResultPrefix = "Incorrect. The correct answer is ";
+                    ResultPrefix = $"{AppResources.Incorrect}";
                     ResultAnswer = correctAnswer.ToString();
                     ResultColor = Colors.Red;
                     score--;
@@ -150,10 +152,10 @@
             ProgressBar.Progress = (double)score / MaxScore;
 
             // Update StarsLabel
-            StarsLabel.Text = $"Stars: {score}";
+            StarsLabel.Text = $"{AppResources.CorrectAnswers}: {score}";
 
             // Update Page Title with MaxScore
-            PageTitle = $"Max Score: {MaxScore}";
+            PageTitle = $"{AppResources.MaxScore}: {MaxScore}";
         }
 
         private async void OnSettingsClicked(object sender, EventArgs e)

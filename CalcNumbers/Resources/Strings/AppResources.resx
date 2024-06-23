@@ -135,4 +135,7 @@
   <data name="MaxScore" xml:space="preserve">
     <value>Max Score</value>
   </data>
+  <data name="CorrectAnswers" xml:space="preserve">
+    <value>Correct answers </value>
+  </data>
 </root>
