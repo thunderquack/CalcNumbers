@@ -20,12 +20,6 @@
                 Completed="OnCheckAnswerClicked"
                 HorizontalOptions="Fill" />
 
-            <Button
-                x:Name="CheckAnswerBtn"
-                Text="Check Answer"
-                Clicked="OnCheckAnswerClicked"
-                HorizontalOptions="Fill" />
-
             <Label
                 x:Name="ResultLabel"
                 Text=""
@@ -47,7 +41,7 @@
             <Button
                 Text="Settings"
                 Clicked="OnSettingsClicked"
-                HorizontalOptions="Center"
+                HorizontalOptions="Fill"
                 VerticalOptions="End" />
         </VerticalStackLayout>
     </ScrollView>
