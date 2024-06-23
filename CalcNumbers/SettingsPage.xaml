@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CalcNumbers.SettingsPage">
+
+    <VerticalStackLayout Padding="30" Spacing="25">
+        <Label Text="Settings" Style="{StaticResource Headline}" />
+
+        <Label Text="Set Maximum Score:" />
+
+        <Entry x:Name="MaxScoreEntry" Placeholder="Enter max score" Keyboard="Numeric" />
+
+        <Button Text="Save" Clicked="OnSaveClicked" />
+    </VerticalStackLayout>
+</ContentPage>
