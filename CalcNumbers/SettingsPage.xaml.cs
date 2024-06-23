@@ -1,10 +1,13 @@
 namespace CalcNumbers
 {
+    using CalcNumbers.Resources.Strings;
+
     public partial class SettingsPage : ContentPage
     {
         public SettingsPage()
         {
             InitializeComponent();
+            LanguagePicker.SelectedItem = Preferences.Get("AppLanguage", "en");
         }
 
         private async void OnSaveClicked(object sender, EventArgs e)
@@ -12,6 +15,7 @@ namespace CalcNumbers
             if (int.TryParse(MaxScoreEntry.Text, out int maxScore) && maxScore > 0)
             {
                 Preferences.Set("MaxScore", maxScore);
+                await DisplayAlert(AppResources.Settings, "Language has been changed. Restart the app to apply changes.", "OK");
                 await Navigation.PopAsync();
             }
             else
