@@ -5,11 +5,14 @@ namespace CalcNumbers
     /// <summary>
     /// Main screen.
     /// </summary>
-    public partial class MainPage : ContentPage
+    public partial class MainPage : ContentPage, INotifyPropertyChanged
     {
         private int correctAnswer;
         private int score;
         private string pageTitle;
+        private string resultPrefix;
+        private string resultAnswer;
+        private Color resultColor;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MainPage"/> class.
@@ -32,6 +35,36 @@ namespace CalcNumbers
             {
                 pageTitle = value;
                 OnPropertyChanged(nameof(PageTitle));
+            }
+        }
+
+        public string ResultPrefix
+        {
+            get => resultPrefix;
+            set
+            {
+                resultPrefix = value;
+                OnPropertyChanged(nameof(ResultPrefix));
+            }
+        }
+
+        public string ResultAnswer
+        {
+            get => resultAnswer;
+            set
+            {
+                resultAnswer = value;
+                OnPropertyChanged(nameof(ResultAnswer));
+            }
+        }
+
+        public Color ResultColor
+        {
+            get => resultColor;
+            set
+            {
+                resultColor = value;
+                OnPropertyChanged(nameof(ResultColor));
             }
         }
 
@@ -83,12 +116,16 @@ namespace CalcNumbers
             {
                 if (userAnswer == correctAnswer)
                 {
-                    ResultLabel.Text = "Correct!";
+                    ResultPrefix = "Correct!";
+                    ResultAnswer = string.Empty;
+                    ResultColor = Colors.Green;
                     score++;
                 }
                 else
                 {
-                    ResultLabel.Text = $"Incorrect. The correct answer is {correctAnswer}.";
+                    ResultPrefix = "Incorrect. The correct answer is ";
+                    ResultAnswer = correctAnswer.ToString();
+                    ResultColor = Colors.Red;
                     score--;
                 }
 
@@ -99,7 +136,9 @@ namespace CalcNumbers
             }
             else
             {
-                ResultLabel.Text = "Please enter a valid number.";
+                ResultPrefix = "Please enter a valid number.";
+                ResultAnswer = string.Empty;
+                ResultColor = Colors.Red;
             }
 
             // Generate a new example for the next attempt
