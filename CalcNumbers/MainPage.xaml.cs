@@ -1,11 +1,17 @@
 ﻿namespace CalcNumbers
 {
+    /// <summary>
+    /// Main screen.
+    /// </summary>
     public partial class MainPage : ContentPage
     {
+        private const int MAX_SCORE = 10;
         private int correctAnswer;
         private int score;
-        private const int maxScore = 10;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MainPage"/> class.
+        /// </summary>
         public MainPage()
         {
             InitializeComponent();
@@ -27,7 +33,8 @@
                     num1 = random.Next(0, 21);
                     num2 = random.Next(0, 21);
                     correctAnswer = num1 + num2;
-                } while (correctAnswer > 20);
+                }
+                while (correctAnswer > 20);
                 ExampleLabel.Text = $"{num1} + {num2} = ?";
             }
             else
@@ -40,6 +47,7 @@
                 {
                     (num2, num1) = (num1, num2);
                 }
+
                 correctAnswer = num1 - num2;
                 ExampleLabel.Text = $"{num1} - {num2} = ?";
             }
@@ -61,7 +69,7 @@
                 }
 
                 // Ensure score stays within bounds
-                score = Math.Max(0, Math.Min(score, maxScore));
+                score = Math.Max(0, Math.Min(score, MAX_SCORE));
 
                 UpdateProgress();
             }
@@ -78,7 +86,7 @@
         private void UpdateProgress()
         {
             // Update ProgressBar
-            ProgressBar.Progress = (double)score / maxScore;
+            ProgressBar.Progress = (double)score / MAX_SCORE;
 
             // Update StarsLabel
             StarsLabel.Text = $"Stars: {score}";
