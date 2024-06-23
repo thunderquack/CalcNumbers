@@ -23,14 +23,12 @@
 
             <Label
                 x:Name="ResultLabel"
-                Text=""
-                TextColor="{Binding ResultColor}"
                 Style="{StaticResource SubHeadline}"
                 SemanticProperties.HeadingLevel="Level2">
                 <Label.FormattedText>
                     <FormattedString>
-                        <Span Text="{Binding ResultPrefix}" />
-                        <Span Text="{Binding ResultAnswer}" FontAttributes="Bold" />
+                        <Span Text="{Binding ResultPrefix}" TextColor="{Binding ResultColor}" />
+                        <Span Text="{Binding ResultAnswer}" FontAttributes="Bold" TextColor="{Binding ResultColor}" />
                     </FormattedString>
                 </Label.FormattedText>
             </Label>

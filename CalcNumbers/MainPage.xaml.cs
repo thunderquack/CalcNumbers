@@ -1,11 +1,9 @@
-﻿using System.ComponentModel;
-
-namespace CalcNumbers
+﻿namespace CalcNumbers
 {
     /// <summary>
     /// Main screen.
     /// </summary>
-    public partial class MainPage : ContentPage, INotifyPropertyChanged
+    public partial class MainPage : ContentPage
     {
         private int correctAnswer;
         private int score;
