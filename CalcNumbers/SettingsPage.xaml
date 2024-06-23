@@ -20,6 +20,6 @@
             </Picker.Items>
         </Picker>
 
-        <Button Text="{x:Static local:AppResources.Settings}" Clicked="OnSaveClicked" />
+        <Button Text="{x:Static local:AppResources.OK}" Clicked="OnSaveClicked" />
     </VerticalStackLayout>
 </ContentPage>

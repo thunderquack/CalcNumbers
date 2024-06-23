@@ -138,4 +138,7 @@
   <data name="CorrectAnswers" xml:space="preserve">
     <value>Correct answers </value>
   </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
 </root>
