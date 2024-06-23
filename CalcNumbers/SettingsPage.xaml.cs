@@ -12,7 +12,6 @@ namespace CalcNumbers
             if (int.TryParse(MaxScoreEntry.Text, out int maxScore) && maxScore > 0)
             {
                 Preferences.Set("MaxScore", maxScore);
-                await DisplayAlert("Settings", "Max score has been saved.", "OK");
                 await Navigation.PopAsync();
             }
             else

@@ -1,4 +1,6 @@
-﻿namespace CalcNumbers
+﻿using System.ComponentModel;
+
+namespace CalcNumbers
 {
     /// <summary>
     /// Main screen.
@@ -7,6 +9,7 @@
     {
         private int correctAnswer;
         private int score;
+        private string pageTitle;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MainPage"/> class.
@@ -14,8 +17,22 @@
         public MainPage()
         {
             InitializeComponent();
+            BindingContext = this;
             GenerateRandomExample();
             UpdateProgress();
+        }
+
+        /// <summary>
+        /// Gets or sets the Page Header.
+        /// </summary>
+        public string PageTitle
+        {
+            get => pageTitle;
+            set
+            {
+                pageTitle = value;
+                OnPropertyChanged(nameof(PageTitle));
+            }
         }
 
         protected override void OnAppearing()
@@ -97,6 +114,9 @@
 
             // Update StarsLabel
             StarsLabel.Text = $"Stars: {score}";
+
+            // Update Page Title with MaxScore
+            PageTitle = $"Max Score: {MaxScore}";
         }
 
         private async void OnSettingsClicked(object sender, EventArgs e)
