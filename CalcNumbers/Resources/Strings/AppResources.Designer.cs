@@ -88,7 +88,7 @@ namespace CalcNumbers.Resources.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Incorrect. The correct answer is .
+        ///   Looks up a localized string similar to Incorrect..
         /// </summary>
         internal static string Incorrect {
             get {

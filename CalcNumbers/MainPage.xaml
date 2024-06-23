@@ -29,7 +29,7 @@
                 <Label.FormattedText>
                     <FormattedString>
                         <Span Text="{Binding ResultPrefix}" TextColor="{Binding ResultColor}" />
-                        <Span Text="{Binding ResultAnswer}" FontAttributes="Bold" TextColor="{Binding ResultColor}" />
+                        <Span Text="{Binding ResultExample}" FontAttributes="Bold" TextColor="{Binding ResultColor}" />
                     </FormattedString>
                 </Label.FormattedText>
             </Label>

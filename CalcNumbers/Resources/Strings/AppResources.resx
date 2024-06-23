@@ -124,7 +124,7 @@
     <value>Correct!</value>
   </data>
   <data name="Incorrect" xml:space="preserve">
-    <value>Incorrect. The correct answer is </value>
+    <value>Incorrect.</value>
   </data>
   <data name="ValidNumber" xml:space="preserve">
     <value>Please enter a valid number.</value>

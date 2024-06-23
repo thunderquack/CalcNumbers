@@ -1,6 +1,8 @@
 ﻿namespace CalcNumbers
 {
     using CalcNumbers.Resources.Strings;
+    using Microsoft.Maui.Controls;
+    using Microsoft.Maui.Graphics;
 
     /// <summary>
     /// Main screen.
@@ -11,7 +13,7 @@
         private int score;
         private string pageTitle;
         private string resultPrefix;
-        private string resultAnswer;
+        private string resultExample;
         private Color resultColor;
         private Color progressColor;
 
@@ -49,13 +51,13 @@
             }
         }
 
-        public string ResultAnswer
+        public string ResultExample
         {
-            get => resultAnswer;
+            get => resultExample;
             set
             {
-                resultAnswer = value;
-                OnPropertyChanged(nameof(ResultAnswer));
+                resultExample = value;
+                OnPropertyChanged(nameof(ResultExample));
             }
         }
 
@@ -128,14 +130,15 @@
                 if (userAnswer == correctAnswer)
                 {
                     ResultPrefix = $"{AppResources.Correct}";
-                    ResultAnswer = string.Empty;
+                    ResultExample = string.Empty;
                     ResultColor = Colors.Green;
                     score++;
                 }
                 else
                 {
+                    string example = ExampleLabel.Text.Replace("?", correctAnswer.ToString());
                     ResultPrefix = $"{AppResources.Incorrect}";
-                    ResultAnswer = correctAnswer.ToString();
+                    ResultExample = $" {example}";
                     ResultColor = Colors.Red;
                     score--;
                 }
@@ -147,8 +150,8 @@
             }
             else
             {
-                ResultPrefix = "Please enter a valid number.";
-                ResultAnswer = string.Empty;
+                ResultPrefix = $"{AppResources.ValidNumber}";
+                ResultExample = string.Empty;
                 ResultColor = Colors.Red;
             }
 
