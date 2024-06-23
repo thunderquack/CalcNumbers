@@ -5,7 +5,6 @@
     /// </summary>
     public partial class MainPage : ContentPage
     {
-        private const int MAX_SCORE = 10;
         private int correctAnswer;
         private int score;
 
@@ -18,6 +17,14 @@
             GenerateRandomExample();
             UpdateProgress();
         }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            UpdateProgress();
+        }
+
+        private int MaxScore => Preferences.Get("MaxScore", 10);
 
         private void GenerateRandomExample()
         {
@@ -69,7 +76,7 @@
                 }
 
                 // Ensure score stays within bounds
-                score = Math.Max(0, Math.Min(score, MAX_SCORE));
+                score = Math.Max(0, Math.Min(score, MaxScore));
 
                 UpdateProgress();
             }
@@ -86,10 +93,15 @@
         private void UpdateProgress()
         {
             // Update ProgressBar
-            ProgressBar.Progress = (double)score / MAX_SCORE;
+            ProgressBar.Progress = (double)score / MaxScore;
 
             // Update StarsLabel
             StarsLabel.Text = $"Stars: {score}";
+        }
+
+        private async void OnSettingsClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new SettingsPage());
         }
     }
 }

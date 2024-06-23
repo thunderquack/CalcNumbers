@@ -43,6 +43,13 @@
                 Text="Stars: 0"
                 Style="{StaticResource SubHeadline}"
                 SemanticProperties.HeadingLevel="Level2" />
+
+            <Button
+                Text="Settings"
+                Clicked="OnSettingsClicked"
+                HorizontalOptions="Center"
+                VerticalOptions="End" />
         </VerticalStackLayout>
     </ScrollView>
+
 </ContentPage>
