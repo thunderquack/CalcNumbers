@@ -138,7 +138,7 @@
                 {
                     string example = ExampleLabel.Text.Replace("?", correctAnswer.ToString());
                     ResultPrefix = $"{AppResources.Incorrect}";
-                    ResultExample = $" {example}";
+                    ResultExample = $"\n{example}";
                     ResultColor = Colors.Red;
                     score--;
                 }
@@ -158,6 +158,7 @@
             // Generate a new example for the next attempt
             GenerateRandomExample();
             AnswerEntry.Text = string.Empty;
+            AnswerEntry.Focus();
         }
 
         private void UpdateProgress()
