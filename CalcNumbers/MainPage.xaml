@@ -38,7 +38,8 @@
                 x:Name="ProgressBar"
                 Progress="0"
                 HorizontalOptions="FillAndExpand"
-                VerticalOptions="Center" />
+                VerticalOptions="Center"
+                ProgressColor="{Binding ProgressColor}"/>
 
             <Label
                 x:Name="StarsLabel"

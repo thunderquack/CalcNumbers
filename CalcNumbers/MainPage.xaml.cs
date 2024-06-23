@@ -1,7 +1,7 @@
-﻿using CalcNumbers.Resources.Strings;
-
-namespace CalcNumbers
+﻿namespace CalcNumbers
 {
+    using CalcNumbers.Resources.Strings;
+
     /// <summary>
     /// Main screen.
     /// </summary>
@@ -13,6 +13,7 @@ namespace CalcNumbers
         private string resultPrefix;
         private string resultAnswer;
         private Color resultColor;
+        private Color progressColor;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MainPage"/> class.
@@ -65,6 +66,16 @@ namespace CalcNumbers
             {
                 resultColor = value;
                 OnPropertyChanged(nameof(ResultColor));
+            }
+        }
+
+        public Color ProgressColor
+        {
+            get => progressColor;
+            set
+            {
+                progressColor = value;
+                OnPropertyChanged(nameof(ProgressColor));
             }
         }
 
@@ -148,8 +159,24 @@ namespace CalcNumbers
 
         private void UpdateProgress()
         {
+            double progress = (double)score / MaxScore;
+
             // Update ProgressBar
-            ProgressBar.Progress = (double)score / MaxScore;
+            ProgressBar.Progress = progress;
+
+            // Update the color of the ProgressBar based on progress
+            if (progress <= 0.5)
+            {
+                ProgressColor = Colors.Red;
+            }
+            else if (progress < 1.0)
+            {
+                ProgressColor = Colors.Yellow;
+            }
+            else
+            {
+                ProgressColor = Colors.Green;
+            }
 
             // Update StarsLabel
             StarsLabel.Text = $"{AppResources.CorrectAnswers}: {score}";
