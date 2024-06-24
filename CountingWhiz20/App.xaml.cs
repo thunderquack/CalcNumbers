@@ -23,5 +23,10 @@
             CultureInfo.DefaultThreadCurrentUICulture = culture;
             AppResources.Culture = culture;
         }
+
+        public static void UpdateMainPage()
+        {
+            Current.MainPage = new NavigationPage(new MainPage());
+        }
     }
 }
