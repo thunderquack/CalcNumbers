@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CountingWhiz.Resources.Strings"
+             x:Class="CountingWhiz.MainPage"
+             Title="{Binding PageTitle}">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            <Label
+                x:Name="ExampleLabel"
+                Text="Example will appear here"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1" />
+
+            <Entry
+                x:Name="AnswerEntry"
+                Placeholder="{x:Static local:AppResources.EnterYourAnswer}"
+                Keyboard="Numeric"
+                Completed="OnCheckAnswerClicked"
+                IsTextPredictionEnabled="False"
+                HorizontalOptions="Fill" />
+
+            <Label
+                x:Name="ResultLabel"
+                Style="{StaticResource SubHeadline}"
+                SemanticProperties.HeadingLevel="Level2">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="{Binding ResultPrefix}" TextColor="{Binding ResultColor}" />
+                        <Span Text="{Binding ResultExample}" FontAttributes="Bold" TextColor="{Binding ResultColor}" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+            <ProgressBar
+                x:Name="ProgressBar"
+                Progress="0"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="Center"
+                ProgressColor="{Binding ProgressColor}"/>
+
+            <Label
+                x:Name="StarsLabel"
+                Text="Stars: 0"
+                Style="{StaticResource SubHeadline}"
+                SemanticProperties.HeadingLevel="Level2" />
+
+            <Button
+                Text="{x:Static local:AppResources.Settings}"
+                Clicked="OnSettingsClicked"
+                HorizontalOptions="Fill"
+                VerticalOptions="End" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
