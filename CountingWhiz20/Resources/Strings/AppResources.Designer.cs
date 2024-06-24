@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CalcNumbers.Resources.Strings {
+namespace CountingWhiz.Resources.Strings {
     using System;
     
     

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:CalcNumbers.Resources.Strings"
-             x:Class="CalcNumbers.SettingsPage"
+             xmlns:local="clr-namespace:CountingWhiz.Resources.Strings"
+             x:Class="CountingWhiz.SettingsPage"
              Title="{x:Static local:AppResources.Settings}">
 
     <VerticalStackLayout Padding="30" Spacing="25">

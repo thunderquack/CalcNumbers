@@ -1,6 +1,6 @@
 ﻿using Foundation;
 
-namespace CalcNumbers
+namespace CountingWhiz
 {
     [Register("AppDelegate")]
     public class AppDelegate : MauiUIApplicationDelegate

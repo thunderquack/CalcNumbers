@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 
-namespace CalcNumbers
+namespace CountingWhiz
 {
     public static class MauiProgram
     {

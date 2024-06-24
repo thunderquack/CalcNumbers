@@ -1,6 +1,6 @@
 ﻿using UIKit;
 
-namespace CalcNumbers
+namespace CountingWhiz
 {
     public class Program
     {

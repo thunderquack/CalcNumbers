@@ -1,6 +1,6 @@
-﻿namespace CalcNumbers
+﻿namespace CountingWhiz
 {
-    using CalcNumbers.Resources.Strings;
+    using CountingWhiz.Resources.Strings;
     using Microsoft.Maui.Controls;
     using Microsoft.Maui.Graphics;
 

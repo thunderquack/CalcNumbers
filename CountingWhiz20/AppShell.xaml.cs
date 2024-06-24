@@ -1,4 +1,4 @@
-﻿namespace CalcNumbers
+﻿namespace CountingWhiz
 {
     public partial class AppShell : Shell
     {

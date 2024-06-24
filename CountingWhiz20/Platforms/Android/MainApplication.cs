@@ -1,7 +1,7 @@
 ﻿using Android.App;
 using Android.Runtime;
 
-namespace CalcNumbers
+namespace CountingWhiz
 {
     [Application]
     public class MainApplication : MauiApplication
