@@ -39,13 +39,16 @@
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-android|AnyCPU'">
-	  <AndroidPackageFormat>apk</AndroidPackageFormat>
+	  <AndroidPackageFormat>aab</AndroidPackageFormat>
 	  <AndroidKeyStore>False</AndroidKeyStore>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-android|AnyCPU'">
 	  <EmbedAssembliesIntoApk>False</EmbedAssembliesIntoApk>
 	  <AndroidKeyStore>False</AndroidKeyStore>
+	  <AndroidUseAapt2>True</AndroidUseAapt2>
+	  <AndroidCreatePackagePerAbi>False</AndroidCreatePackagePerAbi>
+	  <AndroidPackageFormat>apk</AndroidPackageFormat>
 	</PropertyGroup>
 
 	<ItemGroup>
