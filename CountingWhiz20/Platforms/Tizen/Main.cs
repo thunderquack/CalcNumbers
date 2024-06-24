@@ -2,7 +2,7 @@ using Microsoft.Maui;
 using Microsoft.Maui.Hosting;
 using System;
 
-namespace CalcNumbers
+namespace CountingWhiz
 {
     internal class Program : MauiApplication
     {

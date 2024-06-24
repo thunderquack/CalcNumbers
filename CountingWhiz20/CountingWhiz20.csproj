@@ -21,7 +21,7 @@
 		<Nullable>enable</Nullable>
 
 		<!-- Display name -->
-		<ApplicationTitle>CalcNumbers</ApplicationTitle>
+		<ApplicationTitle>CountingWhiz20</ApplicationTitle>
 
 		<!-- App Identifier -->
 		<ApplicationId>de.pidor.countingwhiz20</ApplicationId>

@@ -5,7 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:CountingWhiz"
     Shell.FlyoutBehavior="Disabled"
-    Title="CalcNumbers">
+    Title="CountingWhiz20">
 
     <ShellContent
         Title="Home"
