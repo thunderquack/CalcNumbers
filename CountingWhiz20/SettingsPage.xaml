@@ -16,6 +16,7 @@
         <Picker x:Name="LanguagePicker">
             <Picker.Items>
                 <x:String>en</x:String>
+                <x:String>de</x:String>
                 <x:String>ru</x:String>
             </Picker.Items>
         </Picker>
