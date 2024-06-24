@@ -20,7 +20,8 @@ namespace CountingWhiz
             {
                 Preferences.Set("MaxScore", maxScore);
                 Preferences.Set("AppLanguage", LanguagePicker.SelectedItem.ToString());
-                await DisplayAlert(AppResources.Settings, "Language has been changed. Restart the app to apply changes.", "OK");
+                App.SetCulture(Preferences.Get("AppLanguage", "en"));
+                App.UpdateMainPage();
                 await Navigation.PopAsync();
             }
             else
