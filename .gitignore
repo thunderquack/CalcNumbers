@@ -262,3 +262,4 @@ __pycache__/
 /SvsdBot/apikey.txt
 /SvsdBot/appsettings.Development.json
 /SvsdBot.lutconfig
+/CountingWhiz20/code-signing.keystore
