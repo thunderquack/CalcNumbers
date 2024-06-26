@@ -33,6 +33,17 @@
                 <Label.FormattedText>
                     <FormattedString>
                         <Span Text="{Binding ResultPrefix}" TextColor="{Binding ResultColor}" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+            <Label
+                x:Name="ResultExampleLabel"
+                Style="{StaticResource Headline}"
+                HeightRequest="48"
+                SemanticProperties.HeadingLevel="Level1">
+                <Label.FormattedText>
+                    <FormattedString>
                         <Span Text="{Binding ResultExample}" FontAttributes="Bold" TextColor="{Binding ResultColor}" />
                     </FormattedString>
                 </Label.FormattedText>
