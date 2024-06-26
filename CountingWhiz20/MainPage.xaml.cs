@@ -138,7 +138,7 @@
                 {
                     string example = ExampleLabel.Text.Replace("?", correctAnswer.ToString());
                     ResultPrefix = $"{AppResources.Incorrect}";
-                    ResultExample = $"\n{example}";
+                    ResultExample = $"{example}";
                     ResultColor = Colors.Red;
                     score--;
                 }

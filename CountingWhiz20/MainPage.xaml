@@ -13,6 +13,7 @@
                 x:Name="ExampleLabel"
                 Text="Example will appear here"
                 Style="{StaticResource Headline}"
+                HeightRequest="48"
                 SemanticProperties.HeadingLevel="Level1" />
 
             <Entry
@@ -21,15 +22,28 @@
                 Keyboard="Numeric"
                 Completed="OnCheckAnswerClicked"
                 IsTextPredictionEnabled="False"
+                HeightRequest="48"
                 HorizontalOptions="Fill" />
 
             <Label
                 x:Name="ResultLabel"
                 Style="{StaticResource SubHeadline}"
+                HeightRequest="48"
                 SemanticProperties.HeadingLevel="Level2">
                 <Label.FormattedText>
                     <FormattedString>
                         <Span Text="{Binding ResultPrefix}" TextColor="{Binding ResultColor}" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+            <Label
+                x:Name="ResultExampleLabel"
+                Style="{StaticResource Headline}"
+                HeightRequest="48"
+                SemanticProperties.HeadingLevel="Level1">
+                <Label.FormattedText>
+                    <FormattedString>
                         <Span Text="{Binding ResultExample}" FontAttributes="Bold" TextColor="{Binding ResultColor}" />
                     </FormattedString>
                 </Label.FormattedText>
@@ -40,18 +54,21 @@
                 Progress="0"
                 HorizontalOptions="FillAndExpand"
                 VerticalOptions="Center"
+                HeightRequest="48"
                 ProgressColor="{Binding ProgressColor}"/>
 
             <Label
                 x:Name="StarsLabel"
                 Text="Stars: 0"
                 Style="{StaticResource SubHeadline}"
+                HeightRequest="48"
                 SemanticProperties.HeadingLevel="Level2" />
 
             <Button
                 Text="{x:Static local:AppResources.Settings}"
                 Clicked="OnSettingsClicked"
                 HorizontalOptions="Fill"
+                HeightRequest="48"
                 VerticalOptions="End" />
         </VerticalStackLayout>
     </ScrollView>

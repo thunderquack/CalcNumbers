@@ -6,14 +6,27 @@
              Title="{x:Static local:AppResources.Settings}">
 
     <VerticalStackLayout Padding="30" Spacing="25">
-        <Label Text="{x:Static local:AppResources.Settings}" Style="{StaticResource Headline}" />
+        <Label 
+            Text="{x:Static local:AppResources.Settings}" 
+            HeightRequest="48"
+            Style="{StaticResource Headline}" />
 
-        <Label Text="Set Maximum Score:" />
+        <Label 
+            Text="Set Maximum Score:"
+            HeightRequest="48"/>
 
-        <Entry x:Name="MaxScoreEntry" Placeholder="Enter max score" Keyboard="Numeric" />
+        <Entry 
+            x:Name="MaxScoreEntry" 
+            Placeholder="Enter max score" 
+            HeightRequest="48"
+            Keyboard="Numeric" />
 
-        <Label Text="Language:" />
-        <Picker x:Name="LanguagePicker">
+        <Label 
+            HeightRequest="48"
+            Text="Language:" />
+        <Picker 
+            HeightRequest="48"
+            x:Name="LanguagePicker">
             <Picker.Items>
                 <x:String>en</x:String>
                 <x:String>de</x:String>
@@ -21,6 +34,9 @@
             </Picker.Items>
         </Picker>
 
-        <Button Text="{x:Static local:AppResources.OK}" Clicked="OnSaveClicked" />
+        <Button 
+            HeightRequest="48"
+            Text="{x:Static local:AppResources.OK}" 
+            Clicked="OnSaveClicked" />
     </VerticalStackLayout>
 </ContentPage>
