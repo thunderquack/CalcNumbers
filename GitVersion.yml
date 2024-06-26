@@ -1,0 +1,29 @@
+﻿# GitVersion configuration file
+
+mode: ContinuousDeployment
+
+branches:
+  master:
+    tag: ''
+    increment: Minor
+    regex: master
+
+  feature:
+    tag: 'alpha'
+    increment: Patch
+    regex: feature[/-]
+
+  release:
+    tag: 'beta'
+    increment: Minor
+    regex: release[/-]
+
+  hotfix:
+    tag: 'hotfix'
+    increment: Patch
+    regex: hotfix[/-]
+
+ignore:
+  sha: []
+
+merge-message-formats: {}
