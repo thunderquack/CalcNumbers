@@ -4,7 +4,7 @@ mode: ContinuousDeployment
 
 branches:
   master:
-    tag: ''
+    tag: 'ci'
     increment: Minor
     regex: master
 
