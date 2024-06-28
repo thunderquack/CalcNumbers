@@ -31,6 +31,20 @@ jobs:
       run: dotnet-gitversion /output buildserver
       id: gitversion
 
+    - name: Decode keystore file
+      shell: pwsh
+      run: |
+        $KeystoreBase64 = '${{ secrets.ANDROID_SIGNING_KEYSTORE_BASE64 }}'
+        $KeystoreBytes = [System.Convert]::FromBase64String($KeystoreBase64)
+        [System.IO.File]::WriteAllBytes("${{ github.workspace }}\code-signing.keystore", $KeystoreBytes)
+
+    - name: Create password files
+      shell: pwsh
+      run: |
+        $Password = '${{ secrets.ANDROID_SIGNING_KEYSTORE_PASS }}'
+        $Password | Out-File -FilePath "${{ github.workspace }}\AndroidSigningPassword.txt" -Encoding utf8 -NoNewline
+        Add-Content -Path "${{ github.workspace }}\AndroidSigningPassword.txt" -Value "`n${{ secrets.ANDROID_SIGNING_KEY_PASS }}"
+
     - name: Build
       run: dotnet build --configuration Release
 
