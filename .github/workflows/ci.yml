@@ -27,6 +27,10 @@ jobs:
     - name: Install GitVersion
       run: dotnet tool install --global GitVersion.Tool
 
+    - name: Determine version
+      run: dotnet-gitversion /output buildserver
+      id: gitversion
+
     - name: Build
       run: dotnet build --configuration Release
 
