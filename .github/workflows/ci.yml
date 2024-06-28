@@ -1,0 +1,55 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0     
+        
+    - name: Set up .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: '8.x'
+
+    - name: Install GitVersion
+      run: dotnet tool install --global GitVersion.Tool
+
+    - name: Build
+      run: dotnet build
+
+    - name: Run tests
+      run: dotnet test --no-build --collect:"XPlat Code Coverage"
+
+    - name: Install ReportGenerator
+      run: dotnet tool install --global dotnet-reportgenerator-globaltool
+
+    - name: Generate Code Coverage Report
+      run: reportgenerator -reports:**/coverage.cobertura.xml -targetdir:coverage -reporttypes:Html
+
+    - name: Upload coverage report
+      uses: actions/upload-artifact@v2
+      with:
+        name: coverage-report
+        path: coverage
+
+    #- name: Code Coverage Report
+    #  uses: irongut/CodeCoverageSummary@v1.3.0
+    #  with:
+    #    filename: '**/coverage.cobertura.xml'
+    #    badge: true
+    #    fail_below_min: true
+    #    format: markdown
+    #    hide_branch_rate: false
+    #    hide_complexity: true
+    #    indicators: true
+    #    output: both
+    #    thresholds: '90 95'
