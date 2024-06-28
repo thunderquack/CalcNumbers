@@ -31,6 +31,9 @@ jobs:
       run: dotnet-gitversion /output buildserver
       id: gitversion
 
+    - name: Update .csproj
+      run: pwsh Update-Csproj.ps1 -CsprojPath $(Build.SourcesDirectory)/MyProject.csproj -DisplayVersion ${{ steps.gitversion.outputs.GitVersion_InformationalVersion }} -VersionCode ${{ steps.gitversion.outputs.GitVersion_SemVer }}
+ 
     - name: Decode keystore file
       shell: pwsh
       run: |
@@ -50,17 +53,17 @@ jobs:
     - name: Run tests
       run: dotnet test --no-build --collect:"XPlat Code Coverage"
 
-    - name: Install ReportGenerator
-      run: dotnet tool install --global dotnet-reportgenerator-globaltool
-
-    - name: Generate Code Coverage Report
-      run: reportgenerator -reports:**/coverage.cobertura.xml -targetdir:coverage -reporttypes:Html
-
-    - name: Upload coverage report
-      uses: actions/upload-artifact@v2
-      with:
-        name: coverage-report
-        path: coverage
+    #- name: Install ReportGenerator
+    #  run: dotnet tool install --global dotnet-reportgenerator-globaltool
+    #
+    #- name: Generate Code Coverage Report
+    #  run: reportgenerator -reports:**/coverage.cobertura.xml -targetdir:coverage -reporttypes:Html
+    #
+    #- name: Upload coverage report
+    #  uses: actions/upload-artifact@v2
+    #  with:
+    #    name: coverage-report
+    #    path: coverage
 
     #- name: Code Coverage Report
     #  uses: irongut/CodeCoverageSummary@v1.3.0
