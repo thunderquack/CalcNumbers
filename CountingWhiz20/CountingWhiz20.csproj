@@ -41,10 +41,10 @@
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-android|AnyCPU'">
 		<AndroidPackageFormat>aab</AndroidPackageFormat>
 		<AndroidKeyStore>True</AndroidKeyStore>
-		<AndroidSigningKeyStore>$(MSBuildProjectDirectory)\code-signing.keystore</AndroidSigningKeyStore>
+		<AndroidSigningKeyStore>$(SolutionDir)code-signing.keystore</AndroidSigningKeyStore>
 		<AndroidSigningKeyAlias>code-signing</AndroidSigningKeyAlias>
-		<AndroidSigningKeyPass>file:$(MSBuildProjectDirectory)\AndroidSigningPassword.txt</AndroidSigningKeyPass>
-		<AndroidSigningStorePass>file:$(MSBuildProjectDirectory)\AndroidSigningPassword.txt</AndroidSigningStorePass>
+		<AndroidSigningKeyPass>file:$(SolutionDir)AndroidSigningPassword.txt</AndroidSigningKeyPass>
+		<AndroidSigningStorePass>file:$(SolutionDir)AndroidSigningPassword.txt</AndroidSigningStorePass>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-android|AnyCPU'">

@@ -8,6 +8,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B89A8884-0EBC-4567-B69B-DFB12EBFEB5C}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		AndroidSigningPassword.txt = AndroidSigningPassword.txt
+		code-signing.keystore = code-signing.keystore
 		GitVersion.yml = GitVersion.yml
 		.github\workflows\ci.yml = .github\workflows\ci.yml
 		PrivacyPolicy.md = PrivacyPolicy.md
