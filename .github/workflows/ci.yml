@@ -32,7 +32,7 @@ jobs:
       id: gitversion
 
     - name: Update .csproj
-      run: pwsh Update-Csproj.ps1 -CsprojPath ${{ github.workspace }}/CountingWhiz20/CountingWhiz20.csproj -DisplayVersion ${{ steps.gitversion.outputs.GitVersion_InformationalVersion }} -VersionCode ${{ steps.gitversion.outputs.GitVersion_SemVer }}
+      run: pwsh Update-Csproj.ps1 -CsprojPath ${{ github.workspace }}/CountingWhiz20/CountingWhiz20.csproj -DisplayVersion ${{ GitVersion_InformationalVersion }} -VersionCode ${{ GitVersion_SemVer }}
  
     - name: Decode keystore file
       shell: pwsh
