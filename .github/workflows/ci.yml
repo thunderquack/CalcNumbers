@@ -34,7 +34,7 @@ jobs:
           Get-ChildItem Env:
 
     - name: Update .csproj
-      run: pwsh Update-Csproj.ps1 -CsprojPath ${{ github.workspace }}/CountingWhiz20/CountingWhiz20.csproj -DisplayVersion ${{ steps.gitversion.GitVersion_InformationalVersion }} -VersionCode ${{ steps.gitversion.GitVersion_SemVer }}
+      run: pwsh Update-Csproj.ps1 -CsprojPath ${{ github.workspace }}/CountingWhiz20/CountingWhiz20.csproj -DisplayVersion ${{ env.GitVersion_InformationalVersion }} -VersionCode ${{ env.GitVersion_SemVer }}
  
     - name: Decode keystore file
       shell: pwsh
