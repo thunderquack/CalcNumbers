@@ -26,7 +26,10 @@ jobs:
       id: gitversion
 
     - name: Update .csproj
-      run: pwsh Update-Csproj.ps1 -CsprojPath ${{ github.workspace }}/CountingWhiz20/CountingWhiz20.csproj -DisplayVersion ${{ env.GitVersion_MajorMinorPatch }} -VersionCode ${{ env.GitVersion_Major }}
+      shell: pwsh 
+      run: | 
+          $tagCount = (git tag | Measure-Object).Count
+          Update-Csproj.ps1 -CsprojPath ${{ github.workspace }}/CountingWhiz20/CountingWhiz20.csproj -DisplayVersion ${{ env.GitVersion_MajorMinorPatch }} -VersionCode $tagCount
  
     - name: Decode keystore file
       shell: pwsh
