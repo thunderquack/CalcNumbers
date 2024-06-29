@@ -39,20 +39,20 @@
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-android|AnyCPU'">
-	  <AndroidPackageFormat>aab</AndroidPackageFormat>
-	  <AndroidKeyStore>True</AndroidKeyStore>
-		<AndroidSigningKeyStore>code-signing.keystore</AndroidSigningKeyStore>
+		<AndroidPackageFormat>aab</AndroidPackageFormat>
+		<AndroidKeyStore>True</AndroidKeyStore>
+		<AndroidSigningKeyStore>$(SolutionDir)code-signing.keystore</AndroidSigningKeyStore>
 		<AndroidSigningKeyAlias>code-signing</AndroidSigningKeyAlias>
-		<AndroidSigningKeyPass>file:AndroidSigningPassword.txt</AndroidSigningKeyPass>
-		<AndroidSigningStorePass>file:AndroidSigningPassword.txt</AndroidSigningStorePass>
+		<AndroidSigningKeyPass>file:$(SolutionDir)AndroidSigningPassword.txt</AndroidSigningKeyPass>
+		<AndroidSigningStorePass>file:$(SolutionDir)AndroidSigningPassword.txt</AndroidSigningStorePass>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-android|AnyCPU'">
-	  <EmbedAssembliesIntoApk>False</EmbedAssembliesIntoApk>
-	  <AndroidKeyStore>False</AndroidKeyStore>
-	  <AndroidUseAapt2>True</AndroidUseAapt2>
-	  <AndroidCreatePackagePerAbi>False</AndroidCreatePackagePerAbi>
-	  <AndroidPackageFormat>apk</AndroidPackageFormat>
+		<EmbedAssembliesIntoApk>False</EmbedAssembliesIntoApk>
+		<AndroidKeyStore>False</AndroidKeyStore>
+		<AndroidUseAapt2>True</AndroidUseAapt2>
+		<AndroidCreatePackagePerAbi>False</AndroidCreatePackagePerAbi>
+		<AndroidPackageFormat>apk</AndroidPackageFormat>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -73,42 +73,38 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="GitVersion.MsBuild" Version="5.12.0">
-		  <PrivateAssets>all</PrivateAssets>
-		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		</PackageReference>
 		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.61" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.61" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 		<PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
-		  <PrivateAssets>all</PrivateAssets>
-		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Resources\Images\" />
+		<Folder Include="Resources\Images\" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Resources\Strings\AppResources.Designer.cs">
-	    <DesignTime>True</DesignTime>
-	    <AutoGen>True</AutoGen>
-	    <DependentUpon>AppResources.resx</DependentUpon>
-	  </Compile>
+		<Compile Update="Resources\Strings\AppResources.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>AppResources.resx</DependentUpon>
+		</Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <EmbeddedResource Update="Resources\Strings\AppResources.resx">
-	    <Generator>ResXFileCodeGenerator</Generator>
-	    <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
-	  </EmbeddedResource>
+		<EmbeddedResource Update="Resources\Strings\AppResources.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="SettingsPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
+		<MauiXaml Update="SettingsPage.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
 	</ItemGroup>
 
 </Project>

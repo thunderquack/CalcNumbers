@@ -1,0 +1,76 @@
+name: CI
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0     
+        
+    - name: Set up .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: '8.x'
+
+    - name: Install GitVersion
+      run: dotnet tool install --global GitVersion.Tool
+
+    - name: Determine version
+      run: dotnet-gitversion /output buildserver
+      id: gitversion
+
+    - name: Update .csproj
+      run: pwsh Update-Csproj.ps1 -CsprojPath ${{ github.workspace }}/CountingWhiz20/CountingWhiz20.csproj -DisplayVersion ${{ env.GitVersion_MajorMinorPatch }} -VersionCode ${{ env.GitVersion_Major }}
+ 
+    - name: Decode keystore file
+      shell: pwsh
+      run: |
+        $KeystoreBase64 = '${{ secrets.ANDROID_SIGNING_KEYSTORE_BASE64 }}'
+        $KeystoreBytes = [System.Convert]::FromBase64String($KeystoreBase64)
+        [System.IO.File]::WriteAllBytes("${{ github.workspace }}\code-signing.keystore", $KeystoreBytes)
+
+    - name: Create password file
+      shell: pwsh
+      run: |
+        $Password = '${{ secrets.ANDROID_SIGNING_KEYSTORE_PASS }}'
+        $Password | Out-File -FilePath "${{ github.workspace }}\AndroidSigningPassword.txt" -Encoding utf8 -NoNewline
+
+    - name: Install MAUI workloads
+      run: dotnet workload install maui maui-android
+
+    - name: Build
+      run: dotnet build --configuration Release
+
+    - name: Run tests
+      run: dotnet test --no-build --collect:"XPlat Code Coverage"
+
+    #- name: Install ReportGenerator
+    #  run: dotnet tool install --global dotnet-reportgenerator-globaltool
+    #
+    #- name: Generate Code Coverage Report
+    #  run: reportgenerator -reports:**/coverage.cobertura.xml -targetdir:coverage -reporttypes:Html
+    #
+    #- name: Upload coverage report
+    #  uses: actions/upload-artifact@v2
+    #  with:
+    #    name: coverage-report
+    #    path: coverage
+
+    #- name: Code Coverage Report
+    #  uses: irongut/CodeCoverageSummary@v1.3.0
+    #  with:
+    #    filename: '**/coverage.cobertura.xml'
+    #    badge: true
+    #    fail_below_min: true
+    #    format: markdown
+    #    hide_branch_rate: false
+    #    hide_complexity: true
+    #    indicators: true
+    #    output: both
+    #    thresholds: '90 95'
