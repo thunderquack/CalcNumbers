@@ -21,9 +21,6 @@ jobs:
     #- name: Install dependencies
     #  run: dotnet workload restore
     
-    - name: Install MAUI workloads
-      run: dotnet workload install maui maui-android
-
     - name: Install GitVersion
       run: dotnet tool install --global GitVersion.Tool
 
@@ -32,7 +29,7 @@ jobs:
       id: gitversion
 
     - name: Update .csproj
-      run: pwsh Update-Csproj.ps1 -CsprojPath ${{ github.workspace }}/CountingWhiz20/CountingWhiz20.csproj -DisplayVersion ${{ GitVersion_InformationalVersion }} -VersionCode ${{ GitVersion_SemVer }}
+      run: pwsh Update-Csproj.ps1 -CsprojPath ${{ github.workspace }}/CountingWhiz20/CountingWhiz20.csproj -DisplayVersion ${{ steps.gitversion.GitVersion_InformationalVersion }} -VersionCode ${{ steps.gitversion.GitVersion_SemVer }}
  
     - name: Decode keystore file
       shell: pwsh
@@ -46,6 +43,9 @@ jobs:
       run: |
         $Password = '${{ secrets.ANDROID_SIGNING_KEYSTORE_PASS }}'
         $Password | Out-File -FilePath "${{ github.workspace }}\AndroidSigningPassword.txt" -Encoding utf8 -NoNewline
+
+    - name: Install MAUI workloads
+      run: dotnet workload install maui maui-android
 
     - name: Build
       run: dotnet build --configuration Release
