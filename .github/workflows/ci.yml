@@ -18,9 +18,6 @@ jobs:
       with:
         dotnet-version: '8.x'
 
-    #- name: Install dependencies
-    #  run: dotnet workload restore
-    
     - name: Install GitVersion
       run: dotnet tool install --global GitVersion.Tool
 
@@ -28,13 +25,8 @@ jobs:
       run: dotnet-gitversion /output buildserver
       id: gitversion
 
-    - name: Print all environment variables
-      shell: pwsh
-      run: |
-          Get-ChildItem Env:
-
     - name: Update .csproj
-      run: pwsh Update-Csproj.ps1 -CsprojPath ${{ github.workspace }}/CountingWhiz20/CountingWhiz20.csproj -DisplayVersion ${{ env.GitVersion_InformationalVersion }} -VersionCode ${{ env.GitVersion_SemVer }}
+      run: pwsh Update-Csproj.ps1 -CsprojPath ${{ github.workspace }}/CountingWhiz20/CountingWhiz20.csproj -DisplayVersion ${{ env.GitVersion_MajorMinorPatch }} -VersionCode ${{ env.GitVersion_Major }}
  
     - name: Decode keystore file
       shell: pwsh
