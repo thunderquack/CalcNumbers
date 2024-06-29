@@ -59,3 +59,26 @@ jobs:
         path: |
           ${{ github.workspace }}/CountingWhiz20/bin/Release/net8.0-android/*-Signed.aab
           ${{ github.workspace }}/CountingWhiz20/bin/Release/net8.0-android/*-Signed.apk
+
+    # RELEASE STUB
+    #- name: Create GitHub Release
+    #  id: create_release
+    #  uses: actions/create-release@v1
+    #  env:
+    #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #  with:
+    #    tag_name: ${{ github.ref }}
+    #    release_name: Release ${{ github.ref }}
+    #    body: |
+    #      Changes in this release:
+    #      - Description of changes
+    #
+    #- name: Upload Release Asset
+    #  uses: actions/upload-release-asset@v1
+    #  env:
+    #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #  with:
+    #    upload_url: ${{ steps.create_release.outputs.upload_url }}
+    #    asset_path: ${{ github.workspace }}/CountingWhiz20/bin/Release/net8.0-android/*-Signed.aab
+    #    asset_name: signed.aab
+    #    asset_content_type: application/vnd.android.package-archive
