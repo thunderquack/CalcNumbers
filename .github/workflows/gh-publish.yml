@@ -59,5 +59,5 @@ jobs:
       with:
         name: signed-artifacts
         path: |
-          ${{ github.workspace }}/**/bin/Release/*-Signed.aab
-          ${{ github.workspace }}/**/bin/Release/*-Signed.apk
+          ${{ github.workspace }}/CountingWhiz20/CountingWhiz20/bin/Release/net8.0-android/*-Signed.aab
+          ${{ github.workspace }}/CountingWhiz20/CountingWhiz20/bin/Release/net8.0-android/*-Signed.apk
