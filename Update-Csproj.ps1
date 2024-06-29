@@ -4,6 +4,9 @@ param (
     [string]$VersionCode
 )
 
+Write-Host "DisplayVersion: $DisplayVersion"
+Write-Host "VersionCode: $VersionCode"
+
 [xml]$xml = Get-Content $CsprojPath
 
 $namespace = @{ "msbuild" = "http://schemas.microsoft.com/developer/msbuild/2003" }
