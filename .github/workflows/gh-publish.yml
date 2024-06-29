@@ -49,15 +49,10 @@ jobs:
     - name: Build
       run: dotnet build --configuration Release
 
-    - name: List all files in the workspace
-      shell: pwsh
-      run: |
-        Get-ChildItem -Path "${{ github.workspace }}" -Recurse
-
     - name: Upload the artifact
       uses: actions/upload-artifact@v3
       with:
         name: signed-artifacts
         path: |
-          ${{ github.workspace }}/CountingWhiz20/CountingWhiz20/bin/Release/net8.0-android/*-Signed.aab
-          ${{ github.workspace }}/CountingWhiz20/CountingWhiz20/bin/Release/net8.0-android/*-Signed.apk
+          ${{ github.workspace }}/CountingWhiz20/bin/Release/net8.0-android/*-Signed.aab
+          ${{ github.workspace }}/CountingWhiz20/bin/Release/net8.0-android/*-Signed.apk
